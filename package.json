@@ -1,0 +1,70 @@
+{
+  "name": "clean-me",
+  "version": "1.0.0",
+  "description": "Next-generation Windows system optimizer with advanced cleanup algorithms and stunning glassmorphism UI. Safely removes 60+ types of digital clutter while maintaining peak performance.",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "npm run build:css && electron-builder",
+    "build:css": "tailwindcss -i src/input.css -o src/styles.css --minify",
+    "build:css:watch": "tailwindcss -i src/input.css -o src/styles.css --watch",
+    "dist": "npm run build:css && electron-builder --publish=never",
+    "dev": "npm run build:css && electron . --dev"
+  },
+  "keywords": [
+    "windows-optimizer",
+    "system-cleaner",
+    "performance-booster",
+    "pc-maintenance",
+    "glassmorphism-ui",
+    "electron-app",
+    "ai-cleanup",
+    "disk-space",
+    "memory-optimization",
+    "registry-cleaner"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ChloeVPin/clean.me.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ChloeVPin/clean.me/issues"
+  },
+  "author": "ChloeVPin",
+  "license": "MIT",
+  "copyright": "Copyright © 2025 ChloeVPin. All rights reserved.",
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "electron": "^38.1.2",
+    "electron-builder": "^24.6.4",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.0"
+  },
+  "build": {
+    "appId": "com.chloevpin.cleanme",
+    "productName": "Clean.me",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "assets/**/*",
+      "node_modules/**/*"
+    ],
+    "win": {
+      "target": {
+        "target": "nsis",
+        "arch": [
+          "x64"
+        ]
+      },
+      "icon": "assets/favicon.ico",
+      "requestedExecutionLevel": "requireAdministrator"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "installerSidebar": "assets/wizard.bmp"
+    }
+  }
+}
